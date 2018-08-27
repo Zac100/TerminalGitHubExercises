@@ -1,0 +1,102 @@
+Part 1:
+Mac-Pro:Desktop stevechen$ touch restricted.txt
+Mac-Pro:Desktop stevechen$ chmod 777 restricted.txt
+Mac-Pro:Desktop stevechen$ chmod ugo+rwx
+usage:	chmod [-fhv] [-R [-H | -L | -P]] [-a | +a | =a  [i][# [ n]]] mode|entry file ...
+	chmod [-fhv] [-R [-H | -L | -P]] [-E | -C | -N | -i | -I] file ...
+Mac-Pro:Desktop stevechen$ chmod ugo+rwx restricted.txt
+Mac-Pro:Desktop stevechen$ mkdir secret_files
+Mac-Pro:Desktop stevechen$ cd secret_files
+Mac-Pro:secret_files stevechen$ touch first_secret.txt
+Mac-Pro:secret_files stevechen$ touch second_secret.txt
+Mac-Pro:secret_files stevechen$ mkdir classified
+Mac-Pro:secret_files stevechen$ cd classified
+Mac-Pro:classified stevechen$ mkdir super_secret.txt
+Mac-Pro:classified stevechen$ cd ..
+Mac-Pro:secret_files stevechen$ cd ..
+Mac-Pro:Desktop stevechen$ chmod og +rwx secret_files
+chmod: Invalid file mode: og
+Mac-Pro:Desktop stevechen$ ls
+ZacharyBennettEducationAward.pdf
+answers
+first.txt
+hello.txt
+names.txt
+restricted.txt
+second.txt
+secret_files
+sorted.txt
+Mac-Pro:Desktop stevechen$ ln restricted.txt hard_link
+Mac-Pro:Desktop stevechen$ cd secret_files
+Mac-Pro:secret_files stevechen$ cd classified
+Mac-Pro:classified stevechen$ cd ..
+Mac-Pro:secret_files stevechen$ ln -s classified classified_link
+Mac-Pro:secret_files stevechen$ 
+
+
+Part 2:
+
+Mac-Pro:Desktop stevechen$ sort vegetables.txt
+Amaranth
+Amaranth
+Beet
+Beet
+Broccoli
+Broccoli
+Cabbage
+Cabbage
+Celery
+Chard
+Dill
+Dill
+Kale
+Lettuce
+Lettuce
+Spinach
+Mac-Pro:Desktop stevechen$ wc vegetables.txt
+      15      16     113 vegetables.txt
+Mac-Pro:Desktop stevechen$ sort vegetables.txt | uniq > vegetables_sorted.txt
+Mac-Pro:Desktop stevechen$ cat vegetables_sorted
+cat: vegetables_sorted: No such file or directory
+Mac-Pro:Desktop stevechen$ cat vegetables_sorted.txt
+Amaranth
+Beet
+Broccoli
+Cabbage
+Celery
+Chard
+Dill
+Kale
+Lettuce
+Spinach
+Mac-Pro:Desktop stevechen$ vegetables_sorted.txt | tail - n 3 > last_three.txt
+tail: -: No such file or directory
+tail: n: No such file or directory
+tail: 3: No such file or directory
+-bash: vegetables_sorted.txt: command not found
+Mac-Pro:Desktop stevechen$ vegetables_sorted.txt | tail -n3 > last_three.txt
+-bash: vegetables_sorted.txt: command not found
+Mac-Pro:Desktop stevechen$ cat vegetables_sorted.txt | tail -n3 > last_three.txt
+Mac-Pro:Desktop stevechen$ cat last_three.txt
+Kale
+Lettuce
+Spinach
+Mac-Pro:Desktop stevechen$ cat vegetables.txt
+Lettuce
+Amaranth
+Beet
+Celery
+Kale
+Dill
+Cabbage
+Broccoli
+Lettuce
+Amaranth
+Beet
+Spinach
+Chard
+Broccoli
+Cabbage
+DillMac-Pro:Desktop stevechen$ cat vegetables.txt | grep Broccolwc|  
+       2       2      18
+Mac-Pro:Desktop stevechen$ 

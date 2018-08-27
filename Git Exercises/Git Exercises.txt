@@ -1,0 +1,73 @@
+Part 1:
+Mac-Pro:~ stevechen$ mkdir github_exercises
+Mac-Pro:~ stevechen$ cd github_exercises
+Mac-Pro:github_exercises stevechen$ echo "# test_repo" >>README.md
+Mac-Pro:github_exercises stevechen$ git init
+Initialized empty Git repository in /Users/stevechen/github_exercises/.git/
+Mac-Pro:github_exercises stevechen$ git add .
+Mac-Pro:github_exercises stevechen$ git commit -m "testing commit"
+[master (root-commit) 447e7e0] testing commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+Mac-Pro:github_exercises stevechen$ git remote add origin git@github.com:Zac100/github_exercises.git
+Mac-Pro:github_exercises stevechen$ git push -u origin master
+
+Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 225 bytes | 225.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:Zac100/github_exercises.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Mac-Pro:github_exercises stevechen$ 
+Mac-Pro:github_exercises stevechen$ git clone git@github.com:Zac100/git_practice.git
+Cloning into 'git_practice'...
+remote: Counting objects: 6, done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 6
+Receiving objects: 100% (6/6), done.
+Mac-Pro:github_exercises stevechen$ pwd
+/Users/stevechen/github_exercises
+Mac-Pro:github_exercises stevechen$ echo 'more testing!' >> testing.txt
+Mac-Pro:github_exercises stevechen$ ls
+README.md	git_practice	testing.txt
+Mac-Pro:github_exercises stevechen$ git push origin master
+Everything up-to-date
+Mac-Pro:github_exercises stevechen$ git add .
+warning: adding embedded git repository: git_practice
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint: 	git submodule add <url> git_practice
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint: 	git rm --cached git_practice
+hint: 
+hint: See "git help submodule" for more information.
+Mac-Pro:github_exercises stevechen$ git commit -m "pushing file"
+[master f95c8b4] pushing file
+ 2 files changed, 2 insertions(+)
+ create mode 160000 git_practice
+ create mode 100644 testing.txt
+Mac-Pro:github_exercises stevechen$ git push origin master
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 332 bytes | 332.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:Zac100/github_exercises.git
+   447e7e0..f95c8b4  master -> master
+Mac-Pro:github_exercises stevechen$ git checkout -b "testing_branch"
+Switched to a new branch 'testing_branch'
+Mac-Pro:github_exercises stevechen$ git add .
+Mac-Pro:github_exercises stevechen$ git commit -m "pushing new branch"
+On branch testing_branch
+nothing to commit, working tree clean
+Mac-Pro:github_exercises stevechen$ git push origin master
+Everything up-to-date
+Mac-Pro:github_exercises stevechen$ 
+
+

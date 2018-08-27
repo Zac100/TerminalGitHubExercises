@@ -1,0 +1,31 @@
+Mac-Pro:Desktop stevechen$ mkdir learn_git_again
+Mac-Pro:Desktop stevechen$ cd ~/Desktop/learn_git_again
+Mac-Pro:learn_git_again stevechen$ touch third.txt
+Mac-Pro:learn_git_again stevechen$ git init
+Initialized empty Git repository in /Users/stevechen/Desktop/learn_git_again/.git/
+Mac-Pro:learn_git_again stevechen$ git add .
+Mac-Pro:learn_git_again stevechen$ git commit -m "adding third.txt"
+[master (root-commit) 85d20b2] adding third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 third.txt
+Mac-Pro:learn_git_again stevechen$ git log --oneline
+85d20b2 (HEAD -> master) adding third.txt
+Mac-Pro:learn_git_again stevechen$ touch fourth.txt
+Mac-Pro:learn_git_again stevechen$ git add .
+Mac-Pro:learn_git_again stevechen$ git commit -m "adding fourth.txt"
+[master 132817b] adding fourth.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fourth.txt
+Mac-Pro:learn_git_again stevechen$ rm third.txt
+Mac-Pro:learn_git_again stevechen$ git commit -m "removing third"
+On branch master
+Changes not staged for commit:
+	deleted:    third.txt
+
+no changes added to commit
+Mac-Pro:learn_git_again stevechen$ git config --global core.pager "cat"
+Mac-Pro:learn_git_again stevechen$  git config --global --list
+user.name=Zac B
+user.email=zacbennett0@gmail.com
+core.pager=cat
+Mac-Pro:learn_git_again stevechen$ 

@@ -1,0 +1,79 @@
+What does git clean do?
+removes  untracked/unmerged files from working directory
+
+What do the -d and -f flags for git clean do?
+Allows you to remove directories at well
+
+What git command creates a branch?
+git checkout -b new_branch
+
+What is the difference between a fast-forward and recursive merge?
+Fast-forward merge is based chronologically based on when changes were submitted. Recursive is based on fancy computer magic. 
+
+What git command changes to another branch?
+git checkout master
+
+How do you remove modified or deleted files from the working directory?
+git rm --cached NAME_OF_FILE
+
+What git command deletes a branch?
+
+What does the git diff command do?
+Looks at the differences between two files
+
+How do you remove files from the staging area?
+git branch -D feature
+
+How do merge conflicts happen?
+When two difference branches have the same file but have different contents 
+
+Part 2: Create merge conflict
+
+Mac-Pro:example_merge stevechen$ mkdir round_2
+Mac-Pro:example_merge stevechen$ cd round_2
+Mac-Pro:round_2 stevechen$ git init
+Initialized empty Git repository in /Users/stevechen/Desktop/merge_conflicts/example_merge/round_2/.git/
+Mac-Pro:round_2 stevechen$ touch testing.txt
+Mac-Pro:round_2 stevechen$ git add .
+Mac-Pro:round_2 stevechen$ git commit -m "oh boy"
+[master (root-commit) 54b84a5] oh boy
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 testing.txt
+Mac-Pro:round_2 stevechen$ git checkout -b new_branch
+Switched to a new branch 'new_branch'
+Mac-Pro:round_2 stevechen$ echo bowl > ice_cream.txt
+Mac-Pro:round_2 stevechen$ git add .
+Mac-Pro:round_2 stevechen$ git commit -m "i love ice cream"
+[new_branch b4206b1] i love ice cream
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ice_cream.txt
+Mac-Pro:round_2 stevechen$ git checkout master
+Switched to branch 'master'
+Mac-Pro:round_2 stevechen$ echo spoon > ice_cream.txt
+Mac-Pro:round_2 stevechen$ git add .
+Mac-Pro:round_2 stevechen$ git commit -m "really love ice cream"
+[master 474ebe4] really love ice cream
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ice_cream.txt
+Mac-Pro:round_2 stevechen$ git merge new_branch
+Auto-merging ice_cream.txt
+CONFLICT (add/add): Merge conflict in ice_cream.txt
+Automatic merge failed; fix conflicts and then commit the result.
+Mac-Pro:round_2 stevechen$ git merge new_branch
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+Mac-Pro:round_2 stevechen$ git commit -m "fixed merge"
+U	ice_cream.txt
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+Mac-Pro:round_2 stevechen$ git add .
+Mac-Pro:round_2 stevechen$ git commit -m "fixed merge"
+[master e1ada63] fixed merge
+Mac-Pro:round_2 stevechen$ git merge new_branch
+Already up to date.
+Mac-Pro:round_2 stevechen$ 
+
